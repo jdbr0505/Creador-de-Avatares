@@ -1,0 +1,121 @@
+.avatar-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.avatar-preview {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.avatar-part {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.customization-panel {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.category {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.options button {
+    padding: 0.6rem 1rem;
+    background: #e0e0ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.options button:hover {
+    background: #d0d0ff;
+    transform: translateY(-2px);
+}
+
+.color-picker {
+    margin: 1.5rem 0;
+}
+
+#downloadBtn, #resetBtn {
+    padding: 0.8rem 1.5rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#downloadBtn {
+    background: #4caf50;
+    color: white;
+}
+
+#resetBtn {
+    background: #f44336;
+    color: white;
+}
+
+.avatar-part:hover {
+    filter: drop-shadow(0 0 5px rgba(108, 92, 231, 0.5));
+    transform: scale(1.02);
+}
+
+/* avatar-styles.css */
+.avatar-preview {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    border: 2px dashed #ccc;
+    overflow: hidden;
+}
+
+.avatar-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.3s ease;
+}
+
+#baseLayer { z-index: 1; }
+#eyesLayer { z-index: 2; }
+#noseLayer { z-index: 3; }
+#mouthLayer { z-index: 4; }
+#hairLayer { z-index: 5; }
+#accessoryLayer { z-index: 6; }
