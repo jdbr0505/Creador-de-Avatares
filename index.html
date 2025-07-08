@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Portafolio Interactivo</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Navegación creativa -->
@@ -12,7 +13,7 @@
         <div class="nav-logo">MiPortafolio</div>
         <div class="nav-links">
             <a href="#proyectos" data-scroll>Proyectos</a>
-            <a href="#avatar" data-scroll>Creador</a>
+            <a href="avatar-creator.html" data-scroll>Creador</a>
             <a href="#contacto" data-scroll>Contacto</a>
         </div>
         <div class="cursor-follower"></div>
@@ -33,7 +34,7 @@
         <h2>Creador de Avatares</h2>
         <div class="project-card">
             <div class="project-demo">
-                <img src="avatar-preview.jpg" alt="Demo Avatar">
+                <img src="assets/avatar-preview.jpg" alt="Demo Avatar">
             </div>
             <div class="project-info">
                 <h3>Personaliza tu personaje</h3>
@@ -43,30 +44,19 @@
         </div>
     </section>
     
-    <!-- Más secciones para otros proyectos... -->
+    <!-- Sección de contacto -->
+    <section id="contacto" class="feature-section">
+        <h2>Contacto</h2>
+        <div class="contact-form">
+            <form>
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
     
     <script src="script.js"></script>
 </body>
-<!-- Añade esto en tu HTML -->
-<div class="design-tool">
-    <h3>Diseña tu Propia Parte</h3>
-    <select id="partType">
-        <option value="eyes">Ojos</option>
-        <option value="mouth">Boca</option>
-        <option value="hair">Cabello</option>
-        <option value="accessory">Accesorio</option>
-    </select>
-    
-    <div class="canvas-container">
-        <svg id="partCanvas" width="200" height="200" style="border:1px solid #ddd"></svg>
-    </div>
-    
-    <div class="tools">
-        <button id="addCircle">Círculo</button>
-        <button id="addRect">Rectángulo</button>
-        <button id="addPath">Línea</button>
-        <input type="color" id="shapeColor" value="#000000">
-        <button id="savePart">Guardar Parte</button>
-    </div>
-</div>
 </html>
