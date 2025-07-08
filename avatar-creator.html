@@ -4,57 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creador de Avatares</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="avatar-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>Diseña tu Avatar</h1>
+        <h1><i class="fas fa-user-edit"></i> Diseña tu Avatar</h1>
+        <p>Selecciona y combina diferentes partes para crear tu personaje único</p>
     </header>
     
     <main class="avatar-container">
         <!-- Vista previa del avatar -->
-    <!-- avatar-creator.html -->
-        <div class="avatar-preview" id="avatarPreview">
-            <!-- Capas en orden de apilamiento (de abajo hacia arriba) -->
-            <div class="avatar-layer" id="baseLayer"></div>
-            <div class="avatar-layer" id="eyesLayer"></div>
-            <div class="avatar-layer" id="noseLayer"></div>
-            <div class="avatar-layer" id="mouthLayer"></div>
-            <div class="avatar-layer" id="hairLayer"></div>
-            <div class="avatar-layer" id="accessoryLayer"></div>
+        <div class="avatar-preview-container">
+            <div class="avatar-preview" id="avatarPreview">
+                <div class="avatar-layer" id="baseLayer"></div>
+                <div class="avatar-layer" id="cabezaLayer"></div>
+                <div class="avatar-layer" id="cejasLayer"></div>
+                <div class="avatar-layer" id="ojosLayer"></div>
+                <div class="avatar-layer" id="narizLayer"></div>
+                <div class="avatar-layer" id="bocaLayer"></div>
+                <div class="avatar-layer" id="ropaLayer"></div>
+                <div class="avatar-layer" id="accesorioLayer"></div>
+            </div>
+            
+            <div class="avatar-actions">
+                <button id="downloadBtn" class="action-btn">
+                    <i class="fas fa-download"></i> Descargar
+                </button>
+                <button id="resetBtn" class="action-btn">
+                    <i class="fas fa-redo"></i> Reiniciar
+                </button>
+            </div>
         </div>
         
-        <!-- Panel de controles -->
+        <!-- Panel de personalización -->
         <div class="customization-panel">
-            <div class="category" data-category="base">
-                <h3>Base</h3>
-                <div class="options">
-                    <button data-value="base1">Tono 1</button>
-                    <button data-value="base2">Tono 2</button>
-                    <button data-value="base3">Tono 3</button>
+            <div class="panel-header">
+                <h2><i class="fas fa-sliders-h"></i> Personalización</h2>
+            </div>
+            
+            <div class="categories-tabs">
+                <button class="tab active" data-category="cabeza">Cabeza</button>
+                <button class="tab" data-category="cejas">Cejas</button>
+                <button class="tab" data-category="ojos">Ojos</button>
+                <button class="tab" data-category="nariz">Nariz</button>
+                <button class="tab" data-category="boca">Boca</button>
+                <button class="tab" data-category="ropa">Ropa</button>
+                <button class="tab" data-category="accesorios">Accesorios</button>
+            </div>
+            
+            <div class="category-content active" data-category="cabeza">
+                <div class="options-grid">
+                    <!-- Las opciones se generarán dinámicamente con JS -->
                 </div>
             </div>
             
-            <div class="category" data-category="eyes">
-                <h3>Ojos</h3>
-                <div class="options">
-                    <button data-value="eyes1">Normal</button>
-                    <button data-value="eyes2">Felices</button>
-                    <button data-value="eyes3">Sorprendidos</button>
+            <div class="category-content" data-category="cejas">
+                <div class="options-grid">
+                    <!-- Las opciones se generarán dinámicamente con JS -->
                 </div>
             </div>
             
-            <!-- Repetir para cada categoría (nariz, boca, cabello, accesorios) -->
-            
-            <div class="color-picker">
-                <h3>Color de fondo</h3>
-                <input type="color" id="bgColor" value="#f0f0f0">
+            <div class="category-content" data-category="ojos">
+                <div class="options-grid">
+                    <!-- Las opciones se generarán dinámicamente con JS -->
+                </div>
             </div>
             
-            <button id="downloadBtn">Descargar Avatar</button>
-            <button id="resetBtn">Reiniciar</button>
+            <div class="category-content" data-category="nariz">
+                <div class="options-grid">
+                    <!-- Las opciones se generarán dinámicamente con JS -->
+                </div>
+            </div>
+            
+            <div class="category-content" data-category="boca">
+                <div class="options-grid">
+                    <!-- Las opciones se generarán dinámicamente con JS -->
+                </div>
+            </div>
+            
+            <div class="category-content" data-category="ropa">
+                <div class="options-grid">
+                    <!-- Las opciones se generarán dinámicamente con JS -->
+                </div>
+            </div>
+            
+            <div class="category-content" data-category="accesorios">
+                <div class="options-grid">
+                    <!-- Las opciones se generarán dinámicamente con JS -->
+                </div>
+            </div>
+            
+            <div class="fun-features">
+                <h3><i class="fas fa-magic"></i> Efectos Especiales</h3>
+                <button id="randomizeBtn" class="fun-btn">
+                    <i class="fas fa-random"></i> Combinación Aleatoria
+                </button>
+                <button id="animateBtn" class="fun-btn">
+                    <i class="fas fa-play"></i> Animación de Expresión
+                </button>
+            </div>
         </div>
     </main>
 
