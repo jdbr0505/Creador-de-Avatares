@@ -24,20 +24,42 @@
                 <div class="avatar-layer" id="ojosLayer"></div>
                 <div class="avatar-layer" id="narizLayer"></div>
                 <div class="avatar-layer" id="bocaLayer"></div>
-                <div class="avatar-layer" id="ropaLayer"></div>
-                <div class="avatar-layer" id="accesorioLayer"></div>
+                <div class="avatar-layer" id="cuelloLayer"></div>
+                <div class="avatar-layer" id="cabelloLayer"></div>
+                <div class="avatar-layer" id="orejasLayer"></div>
             </div>
             
             <div class="avatar-actions">
                 <button id="downloadBtn" class="action-btn">
-                    <i class="fas fa-download"></i> Descargar
+                    <i class="fas fa-download"></i> Descargar el Avatar
                 </button>
                 <button id="resetBtn" class="action-btn">
-                    <i class="fas fa-redo"></i> Reiniciar
+                    <i class="fas fa-redo"></i> Reiniciar el Avatar
                 </button>
+          
+                <!-- Reproductor de música estilo Mii -->
+        <div class="music-player">
+            <audio id="bgMusic" loop></audio>
+            <div class="music-controls">
+                <button id="musicToggle" class="music-btn">
+                    <i class="fas fa-music"></i>
+                </button>
+                <select id="musicSelector" class="music-selector">
+                    <option value="">Seleccionar canción</option>
+                    <option value="assets/musica/Wii OST - Mii Maker.mp3">Tema Mii (Wii)</option>
+                    <option value="assets/musica/Nintendo 3DS - Mii Maker - Main Theme.mp3">Tema Mii (3DS)</option>
+                    <option value="assets/musica/Mii Editor - Mii Maker (Wii U) Music.mp3">Tema Mii (Wii U)</option>
+                    <option value="assets/musica/Mii Maker - Tomodachi Life OST.mp3">Tema Mii (Tomodachi Life)</option>
+                    <option value="assets/musica/Character Customization - Nintendo Switch Sports Soundtrack.mp3">Tema Mii (Nintendo Switch)</option>
+                </select>
+                <div class="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                </div>
             </div>
         </div>
-        
+          </div>
+    </div>
         <!-- Panel de personalización -->
         <div class="customization-panel">
             <div class="panel-header">
@@ -50,52 +72,64 @@
                 <button class="tab" data-category="ojos">Ojos</button>
                 <button class="tab" data-category="nariz">Nariz</button>
                 <button class="tab" data-category="boca">Boca</button>
-                <button class="tab" data-category="ropa">Ropa</button>
-                <button class="tab" data-category="accesorios">Accesorios</button>
+                <button class="tab" data-category="cuello">Cuello</button>
+                <button class="tab" data-category="cabello">Cabello</button>
+                <button class="tab" data-category="orejas">Orejas</button>
             </div>
             
+            <!-- Contenido de las categorías -->
             <div class="category-content active" data-category="cabeza">
-                <div class="options-grid">
-                    <!-- Las opciones se generarán dinámicamente con JS -->
-                </div>
+                <div class="options-grid"></div>
             </div>
             
             <div class="category-content" data-category="cejas">
-                <div class="options-grid">
-                    <!-- Las opciones se generarán dinámicamente con JS -->
-                </div>
+                <div class="options-grid"></div>
             </div>
             
             <div class="category-content" data-category="ojos">
-                <div class="options-grid">
-                    <!-- Las opciones se generarán dinámicamente con JS -->
-                </div>
+                <div class="options-grid"></div>
             </div>
             
             <div class="category-content" data-category="nariz">
-                <div class="options-grid">
-                    <!-- Las opciones se generarán dinámicamente con JS -->
-                </div>
+                <div class="options-grid"></div>
             </div>
             
             <div class="category-content" data-category="boca">
-                <div class="options-grid">
-                    <!-- Las opciones se generarán dinámicamente con JS -->
+                <div class="options-grid"></div>
+            </div>
+            
+            <div class="category-content" data-category="cuello">
+                <div class="options-grid"></div>
+            </div>
+            
+            <!-- Sección de cabello con selector de color -->
+            <div class="category-content" data-category="cabello">
+                <div class="options-grid"></div>
+                <div class="color-picker-container" style="display: none;">
+                    <h3>Color del cabello</h3>
+                    <input type="color" id="hairColorPicker" value="#000000">
+                    <div class="color-presets">
+                        <div class="color-preset active" style="background: #000000;" data-color="#000000"></div>
+                        <div class="color-preset" style="background: #3d2b1f;" data-color="#3d2b1f"></div>
+                        <div class="color-preset" style="background: #6b4e31;" data-color="#6b4e31"></div>
+                        <div class="color-preset" style="background: #a67c52;" data-color="#a67c52"></div>
+                        <div class="color-preset" style="background: #c68642;" data-color="#c68642"></div>
+                        <div class="color-preset" style="background: #e6bc5c;" data-color="#e6bc5c"></div>
+                        <div class="color-preset" style="background: #b55239;" data-color="#b55239"></div>
+                        <div class="color-preset" style="background: #d1352b;" data-color="#d1352b"></div>
+                        <div class="color-preset" style="background: #6a2135;" data-color="#6a2135"></div>
+                        <div class="color-preset" style="background: #3e3546;" data-color="#3e3546"></div>
+                        <div class="color-preset" style="background: #2b4162;" data-color="#2b4162"></div>
+                        <div class="color-preset" style="background: #4aad52;" data-color="#4aad52"></div>
+                    </div>
                 </div>
             </div>
             
-            <div class="category-content" data-category="ropa">
-                <div class="options-grid">
-                    <!-- Las opciones se generarán dinámicamente con JS -->
-                </div>
+            <div class="category-content" data-category="orejas">
+                <div class="options-grid"></div>
             </div>
             
-            <div class="category-content" data-category="accesorios">
-                <div class="options-grid">
-                    <!-- Las opciones se generarán dinámicamente con JS -->
-                </div>
-            </div>
-            
+            <!-- Efectos especiales -->
             <div class="fun-features">
                 <h3><i class="fas fa-magic"></i> Efectos Especiales</h3>
                 <button id="randomizeBtn" class="fun-btn">
@@ -107,7 +141,6 @@
             </div>
         </div>
     </main>
-
-    <script src="script.js"></script>
+ <script src="script.js"></script>
 </body>
 </html>
