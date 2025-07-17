@@ -132,6 +132,10 @@ header p {
     z-index: 1;
     top: 1%;
     height: 50;
+} 
+
+#ropaLayer {
+    top: 4%;
 }
 
 /* Estilos para el contenedor de acciones */

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creador de Avatares</title>
+    <title>EpicAvatar</title>
     <link rel="stylesheet" href="avatar-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
@@ -27,6 +27,7 @@
                 <div class="avatar-layer" id="cuelloLayer"></div>
                 <div class="avatar-layer" id="cabelloLayer"></div>
                 <div class="avatar-layer" id="orejasLayer"></div>
+                <div class="avatar-layer" id="ropaLayer"></div>
             </div>
             
             <div class="avatar-actions">
@@ -74,7 +75,8 @@
                 <button class="tab" data-category="boca">Boca</button>
                 <button class="tab" data-category="cuello">Cuello</button>
                 <button class="tab" data-category="cabello">Cabello</button>
-                <button class="tab" data-category="orejas">Orejas</button>
+                <button class="tab" data-category="orejas">Orejas</button>             
+                <button class="tab" data-category="ropa">Ropa</button>
             </div>
             
             <!-- Contenido de las categorías -->
@@ -128,8 +130,33 @@
             <div class="category-content" data-category="orejas">
                 <div class="options-grid"></div>
             </div>
-            
-            <!-- Efectos especiales -->
+            <!-- Dentro de tu customization-panel, después de la categoría "orejas" -->
+            <div class="category-content" data-category="ropa">
+                <div class="options-grid">
+                    <!-- Aquí irá la imagen base de los hombros -->
+                    <div class="option active" data-value="hombros1">
+                        <img src="assets/ropas/ropa (1).png" alt="Hombros base">
+                        <div class="name">Hombros</div>
+                    </div>
+                </div>
+                
+            <!-- Selector de color para la ropa -->
+            <div class="color-picker-container">
+                <h3>Color de la ropa</h3>
+                <input type="color" id="ropaColorPicker" value="#3a5fcd">
+                <div class="color-presets">
+                    <div class="color-preset active" style="background: #3a5fcd;" data-color="#3a5fcd"></div>
+                    <div class="color-preset" style="background: #2c3e50;" data-color="#2c3e50"></div>
+                    <div class="color-preset" style="background: #e74c3c;" data-color="#e74c3c"></div>
+                    <div class="color-preset" style="background: #27ae60;" data-color="#27ae60"></div>
+                    <div class="color-preset" style="background: #f39c12;" data-color="#f39c12"></div>
+                    <div class="color-preset" style="background: #8e44ad;" data-color="#8e44ad"></div>
+                    <div class="color-preset" style="background: #3498db;" data-color="#3498db"></div>
+                    <div class="color-preset" style="background: #1abc9c;" data-color="#1abc9c"></div>
+                </div>
+            </div>
+        </div>
+                <!-- Efectos especiales -->
             <div class="fun-features">
                 <h3><i class="fas fa-magic"></i> Efectos Especiales</h3>
                 <button id="randomizeBtn" class="fun-btn">

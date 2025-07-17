@@ -73,6 +73,10 @@ const avatarParts = {
         { id: 'orejas9', name: 'Cuadradas M', image: 'assets/orejas/orejas (9).png' }
     ],
 
+       ropa: [
+        { id: 'hombros1', name: 'Hombros', image: 'assets/ropas/ropa (1).png', colorable: true }
+    ],
+
     cabello: [
         { id: 'cabello1', name: 'peluca 1', image: 'assets/cabellos/cabello (1).png' },
         { id: 'cabello2', name: 'peluca 2', image: 'assets/cabellos/cabello (2).png' },
@@ -97,8 +101,10 @@ const avatarState = {
     cuello: 'cuello1',
     orejas: 'orejas1',
     cabello: 'cabello1',
-    background: '#000000',
-    hairColor: '#000000'
+    background: '#ffffffff',
+    hairColor: '#000000',
+    ropa: 'hombros1',
+    ropaColor: '#3a5fcd'
 };
 
 // Inicialización
@@ -247,7 +253,7 @@ function updateAvatarPart(category, value) {
     }
 }
 
-// Función para actualizar el color del cabello - VERSIÓN FINAL CORREGIDA
+// Función para actualizar el color del cabello 
 function updateHairColor(color) {
     avatarState.hairColor = color;
     const hairLayer = document.getElementById('cabelloLayer');
@@ -325,6 +331,54 @@ function hexToHSL(hex) {
 
     return { h: h, s: s * 100, l: l * 100 };
 }
+// Función para actualizar el color de la ropa
+function updateRopaColor(color) {
+    const ropaLayer = document.getElementById('ropaLayer');
+    if (!ropaLayer) return;
+    
+    avatarState.ropaColor = color;
+    
+    // Crea un canvas para aplicar el color
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    
+    const currentRopa = avatarParts.ropa.find(p => p.id === avatarState.ropa);
+    if (!currentRopa) return;
+    
+    img.src = currentRopa.image;
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+        const rgb = hexToRgb(color);
+        
+        for (let i = 0; i < data.length; i += 4) {
+            if (data[i+3] > 0) { // Solo píxeles no transparentes
+                // Mantener la luminosidad original pero cambiar el tono
+                const lightness = (data[i] + data[i+1] + data[i+2]) / 3;
+                data[i] = rgb.r * lightness / 255;   // R
+                data[i+1] = rgb.g * lightness / 255; // G
+                data[i+2] = rgb.b * lightness / 255; // B
+            }
+        }
+        
+        ctx.putImageData(imageData, 0, 0);
+        ropaLayer.style.backgroundImage = `url('${canvas.toDataURL()}')`;
+    };
+}
+
+// Helper para convertir HEX a RGB
+function hexToRgb(hex) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return { r, g, b };
+}
+
 // Renderizar avatar completo
 function renderAvatar() {
     // Aplicar partes seleccionadas
@@ -443,6 +497,7 @@ function resetAvatar() {
     document.querySelectorAll(`[data-value="cuello1"]`).forEach(opt => opt.classList.add('active'));
     document.querySelectorAll(`[data-value="cabello1"]`).forEach(opt => opt.classList.add('active'));
     document.querySelectorAll(`[data-value="orejas1"]`).forEach(opt => opt.classList.add('active'));
+    
     
     // Resetear selector de color
     if (document.getElementById('hairColorPicker')) {
